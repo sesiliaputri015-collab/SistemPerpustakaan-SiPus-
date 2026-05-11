@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <title>SIPUS — Katalog Buku</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#1a2842", background: "#f5f7fa", "on-background": "#0b1c30",
+            surface: "#ffffff", "surface-container": "#eef2f7",
+            "surface-container-low": "#f8fafc", "on-surface": "#0b1c30",
+            "on-surface-variant": "#5a6478", outline: "#9ca3af",
+            "outline-variant": "#e5e7eb",
+          },
+          fontFamily: { manrope: ["Manrope", "sans-serif"], inter: ["Inter", "sans-serif"] },
+        }
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="min-h-screen bg-background dark:bg-slate-950 text-on-background dark:text-slate-300 font-inter pb-safe">
+  <header
+    class="sticky top-0 z-40 bg-background/95 dark:bg-slate-950/95 backdrop-blur px-5 pt-5 pb-3 border-b border-outline-variant/40 dark:border-slate-800">
+    <div class="flex items-center justify-between mb-4">
+      <h1 class="font-manrope font-bold text-2xl">Katalog Buku</h1>
+      <button id="btn-toggle-dark" type="button" aria-label="Ganti tema"
+        class="min-h-10 min-w-10 rounded-full active:scale-95 text-on-surface dark:text-slate-200">
+        <span class="material-symbols-outlined">contrast</span>
+      </button>
+    </div>
+    <div class="relative">
+      <span
+        class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant dark:text-slate-400">search</span>
+      <input id="search-input" type="search" placeholder="Cari judul, penulis, kategori…"
+        class="w-full min-h-12 pl-12 pr-4 rounded-full bg-surface-container dark:bg-slate-900 border-0 focus:ring-2 focus:ring-primary text-sm" />
+      <button id="btn-search" type="button" aria-label="Cari" class="hidden"></button>
+    </div>
+    <div class="mt-3 flex gap-2 overflow-x-auto no-scrollbar pb-1">
+      <button data-filter-category="Semua"
+        class="min-h-9 px-4 rounded-full text-xs font-semibold whitespace-nowrap bg-primary text-white active:scale-95">Semua</button>
+      <button data-filter-category="Fiksi"
+        class="min-h-9 px-4 rounded-full text-xs font-semibold whitespace-nowrap bg-surface-container dark:bg-slate-800 text-on-surface dark:text-slate-300 active:scale-95">Fiksi</button>
+      <button data-filter-category="Sains"
+        class="min-h-9 px-4 rounded-full text-xs font-semibold whitespace-nowrap bg-surface-container dark:bg-slate-800 text-on-surface dark:text-slate-300 active:scale-95">Sains</button>
+      <button data-filter-category="Sejarah"
+        class="min-h-9 px-4 rounded-full text-xs font-semibold whitespace-nowrap bg-surface-container dark:bg-slate-800 text-on-surface dark:text-slate-300 active:scale-95">Sejarah</button>
+      <button data-filter-category="Filsafat"
+        class="min-h-9 px-4 rounded-full text-xs font-semibold whitespace-nowrap bg-surface-container dark:bg-slate-800 text-on-surface dark:text-slate-300 active:scale-95">Filsafat</button>
+      <button data-filter-category="Sastra"
+        class="min-h-9 px-4 rounded-full text-xs font-semibold whitespace-nowrap bg-surface-container dark:bg-slate-800 text-on-surface dark:text-slate-300 active:scale-95">Sastra</button>
+    </div>
+  </header>
+
+  <main class="px-5 py-5">
+    <p class="text-sm text-on-surface-variant dark:text-slate-400 mb-3">Menampilkan koleksi terbaru</p>
+
+    <div id="book-grid" class="grid grid-cols-2 gap-4">
+
+      <a href="pinjambuku.html" data-title="Hujan" data-author="Tere Liye" data-category="Fiksi"
+        class="block active:scale-95">
+        <img src="hujan.bmp" alt="Hujan" class="w-full aspect-[3/4] object-cover rounded-xl shadow-md" />
+        <h3 class="font-semibold mt-2 text-sm truncate">Hujan</h3>
+        <p class="text-xs text-on-surface-variant dark:text-slate-400 truncate">Tere Liye</p>
+        <p class="text-[11px] mt-1 inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Tersedia
+        </p>
+      </a>
+
+      <a href="pinjambuku.html" data-title="Bumi" data-author="Tere Liye" data-category="Fiksi"
+        class="block active:scale-95">
+        <img src="bumi.jpg" alt="Bumi" class="w-full aspect-[3/4] object-cover rounded-xl shadow-md" />
+        <h3 class="font-semibold mt-2 text-sm truncate">Bumi</h3>
+        <p class="text-xs text-on-surface-variant dark:text-slate-400 truncate">Tere Liye</p>
+        <p class="text-[11px] mt-1 inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Tersedia
+        </p>
+      </a>
+
+      <a href="pinjambuku.html" data-title="Laut Bercerita" data-author="Leila S. Chudori" data-category="Sastra"
+        class="block active:scale-95">
+        <img src="laut bercertita.jpg" alt="Laut Bercerita"
+          class="w-full aspect-[3/4] object-cover rounded-xl shadow-md" />
+        <h3 class="font-semibold mt-2 text-sm truncate">Laut Bercerita</h3>
+        <p class="text-xs text-on-surface-variant dark:text-slate-400 truncate">Leila S. Chudori</p>
+        <p class="text-[11px] mt-1 inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Tersedia
+        </p>
+      </a>
+
+      <a href="pinjambuku.html" data-title="Pulang" data-author="Leila S. Chudori" data-category="Sastra"
+        class="block active:scale-95">
+        <img src="pulang.jpg" alt="Pulang" class="w-full aspect-[3/4] object-cover rounded-xl shadow-md" />
+        <h3 class="font-semibold mt-2 text-sm truncate">Pulang</h3>
+        <p class="text-xs text-on-surface-variant dark:text-slate-400 truncate">Leila S. Chudori</p>
+        <p class="text-[11px] mt-1 inline-flex items-center gap-1 text-amber-600 dark:text-amber-400">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Sisa 1
+        </p>
+      </a>
+
+      <a href="pinjambuku.html" data-title="Filosofi Teras" data-author="Henry Manampiring" data-category="Filsafat"
+        class="block active:scale-95">
+        <img src="filosofi teras.jpg" alt="Filosofi Teras"
+          class="w-full aspect-[3/4] object-cover rounded-xl shadow-md" />
+        <h3 class="font-semibold mt-2 text-sm truncate">Filosofi Teras</h3>
+        <p class="text-xs text-on-surface-variant dark:text-slate-400 truncate">Henry Manampiring</p>
+        <p class="text-[11px] mt-1 inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Tersedia
+        </p>
+      </a>
+
+      <a href="pinjambuku.html" data-title="Sapiens" data-author="Yuval Noah Harari" data-category="Sejarah"
+        class="block active:scale-95">
+        <img src="sapiens.jpg" alt="Sapiems" class="w-full aspect-[3/4] object-cover rounded-xl shadow-md" />
+        <h3 class="font-semibold mt-2 text-sm truncate">Sapiens</h3>
+        <p class="text-xs text-on-surface-variant dark:text-slate-400 truncate">Yuval Noah Harari</p>
+        <p class="text-[11px] mt-1 inline-flex items-center gap-1 text-rose-600 dark:text-rose-400">
+          <span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span> Tidak tersedia
+        </p>
+      </a>
+
+      <a href="pinjambuku.html" data-title="A Brief History of Time" data-author="Stephen Hawking" data-category="Sains"
+        class="block active:scale-95">
+        <img src="a brief history.jpg" alt="A Brief History of Time"
+          class="w-full aspect-[3/4] object-cover rounded-xl shadow-md" />
+        <h3 class="font-semibold mt-2 text-sm truncate">A Brief History of Time</h3>
+        <p class="text-xs text-on-surface-variant dark:text-slate-400 truncate">Stephen Hawking</p>
+        <p class="text-[11px] mt-1 inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Tersedia
+        </p>
+      </a>
+
+      <a href="pinjambuku.html" data-title="Educated" data-author="Tara Westover" data-category="Memoir"
+        class="block active:scale-95">
+        <img src="educated.jpg" alt="Educated" class="w-full aspect-[3/4] object-cover rounded-xl shadow-md" />
+        <h3 class="font-semibold mt-2 text-sm truncate">Educated</h3>
+        <p class="text-xs text-on-surface-variant dark:text-slate-400 truncate">Tara Westover</p>
+        <p class="text-[11px] mt-1 inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Tersedia
+        </p>
+      </a>
+    </div>
+
+    <div id="search-empty" class="hidden text-center py-12 text-sm text-on-surface-variant dark:text-slate-400">
+      <span class="material-symbols-outlined !text-4xl mb-2">search_off</span>
+      <p>Buku tidak ditemukan.</p>
+    </div>
+  </main>
+
+  <nav id="bottom-nav"
+    class="fixed bottom-0 left-0 right-0 z-50 flex justify-around items-center px-2 py-2 bg-white/95 dark:bg-slate-900/95 backdrop-blur-lg border-t border-outline-variant/40 dark:border-slate-800 shadow-[0_-4px_12px_rgba(30,58,138,0.05)]">
+    <a data-nav="beranda" href="beranda.html"
+      class="nav-link min-h-12 min-w-16 flex flex-col items-center justify-center px-3 py-1 rounded-xl text-slate-400 dark:text-slate-500 hover:text-primary dark:hover:text-blue-400 active:scale-95"><span
+        class="material-symbols-outlined">home</span><span
+        class="text-[10px] font-semibold uppercase tracking-wider mt-0.5">Beranda</span></a>
+    <a data-nav="buku" href="buku.html"
+      class="nav-link min-h-12 min-w-16 flex flex-col items-center justify-center px-3 py-1 rounded-xl text-slate-400 dark:text-slate-500 hover:text-primary dark:hover:text-blue-400 active:scale-95"><span
+        class="material-symbols-outlined">menu_book</span><span
+        class="text-[10px] font-semibold uppercase tracking-wider mt-0.5">Buku</span></a>
+    <a data-nav="pinjam" href="koleksi.html"
+      class="nav-link min-h-12 min-w-16 flex flex-col items-center justify-center px-3 py-1 rounded-xl text-slate-400 dark:text-slate-500 hover:text-primary dark:hover:text-blue-400 active:scale-95"><span
+        class="material-symbols-outlined">collections_bookmark</span><span
+        class="text-[10px] font-semibold uppercase tracking-wider mt-0.5">Pinjam</span></a>
+    <a data-nav="akun" href="account.html"
+      class="nav-link min-h-12 min-w-16 flex flex-col items-center justify-center px-3 py-1 rounded-xl text-slate-400 dark:text-slate-500 hover:text-primary dark:hover:text-blue-400 active:scale-95"><span
+        class="material-symbols-outlined">person</span><span
+        class="text-[10px] font-semibold uppercase tracking-wider mt-0.5">Akun</span></a>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

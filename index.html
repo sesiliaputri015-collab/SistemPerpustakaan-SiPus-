@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <title>SIPUS — Masuk</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#1a2842", "primary-container": "#0f1a2e", "on-primary": "#ffffff",
+            secondary: "#006c49", "secondary-container": "#6cf8bb",
+            background: "#f5f7fa", "on-background": "#0b1c30",
+            surface: "#ffffff", "surface-container": "#eef2f7",
+            "surface-container-low": "#f8fafc", "surface-container-high": "#e2e8f0",
+            "surface-container-highest": "#cbd5e1",
+            "on-surface": "#0b1c30", "on-surface-variant": "#5a6478",
+            outline: "#9ca3af", "outline-variant": "#e5e7eb",
+            error: "#ba1a1a", "error-container": "#ffdad6",
+          },
+          fontFamily: { manrope: ["Manrope", "sans-serif"], inter: ["Inter", "sans-serif"] },
+        }
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="min-h-screen bg-background dark:bg-slate-950 text-on-background dark:text-slate-300 font-inter">
+  <main class="min-h-screen flex flex-col px-6 py-10 max-w-md mx-auto w-full">
+    <div class="flex-1 flex flex-col justify-center">
+      <div class="text-center mb-10">
+        <div
+          class="w-16 h-16 mx-auto rounded-2xl bg-primary text-white flex items-center justify-center shadow-lg shadow-primary/30">
+          <span class="material-symbols-outlined !text-4xl">menu_book</span>
+        </div>
+        <h1 class="font-manrope font-extrabold text-3xl mt-5 text-primary dark:text-blue-300">SIPUS</h1>
+        <p class="text-sm text-on-surface-variant dark:text-slate-400 mt-1">
+          Sistem Informasi Perpustakaan
+        </p>
+      </div>
+
+      <h2 class="font-manrope font-bold text-2xl mb-1">Selamat Datang Kembali</h2>
+      <p class="text-sm text-on-surface-variant dark:text-slate-400 mb-8">
+        Masuk untuk melanjutkan ke akun Anda.
+      </p>
+
+      <form id="form-login" class="space-y-5">
+        <label class="block">
+          <span class="text-sm font-medium text-on-surface dark:text-slate-200">Email</span>
+          <input id="login-email" type="email" required autocomplete="email" placeholder="nama@email.com"
+            class="mt-2 w-full min-h-12 px-4 rounded-xl border border-outline-variant dark:border-slate-700 bg-white dark:bg-slate-900 text-on-surface dark:text-slate-100 focus:border-primary focus:ring-2 focus:ring-primary/20" />
+        </label>
+        <label class="block">
+          <span class="text-sm font-medium text-on-surface dark:text-slate-200">Kata Sandi</span>
+          <div class="relative mt-2">
+            <input id="login-password" type="password" required autocomplete="current-password" placeholder="••••••••"
+              class="w-full min-h-12 px-4 pr-12 rounded-xl border border-outline-variant dark:border-slate-700 bg-white dark:bg-slate-900 text-on-surface dark:text-slate-100 focus:border-primary focus:ring-2 focus:ring-primary/20" />
+            <button id="btn-toggle-password" type="button"
+              class="absolute right-3 top-1/2 -translate-y-1/2 min-h-10 min-w-10 flex items-center justify-center text-on-surface-variant dark:text-slate-400 active:scale-95"
+              aria-label="Tampilkan kata sandi">
+              <span class="material-symbols-outlined">visibility</span>
+            </button>
+          </div>
+        </label>
+
+        <div class="flex items-center justify-between text-sm">
+          <label class="flex items-center gap-2">
+            <input type="checkbox" class="rounded text-primary focus:ring-primary" />
+            <span class="text-on-surface-variant dark:text-slate-400">Ingat saya</span>
+          </label>
+          <a href="#" class="font-medium text-primary dark:text-blue-300 active:scale-95">Lupa kata sandi?</a>
+        </div>
+
+        <button id="btn-login" type="submit"
+          class="w-full min-h-12 rounded-full bg-primary hover:bg-primary-container text-white font-semibold tracking-wide active:scale-95 shadow-md shadow-primary/30">
+          Masuk
+        </button>
+      </form>
+
+      <div class="my-7 flex items-center gap-3 text-xs text-on-surface-variant dark:text-slate-500">
+        <span class="flex-1 h-px bg-outline-variant dark:bg-slate-800"></span>
+        ATAU
+        <span class="flex-1 h-px bg-outline-variant dark:bg-slate-800"></span>
+      </div>
+
+      <button id="btn-google" type="button"
+        class="w-full min-h-12 rounded-full border border-outline-variant dark:border-slate-700 bg-white dark:bg-slate-900 text-on-surface dark:text-slate-200 font-medium flex items-center justify-center gap-3 active:scale-95">
+        <span class="material-symbols-outlined !text-xl">login</span>
+        Lanjutkan dengan Google
+      </button>
+    </div>
+
+    <p class="text-center text-sm text-on-surface-variant dark:text-slate-400 mt-8">
+      Belum punya akun?
+      <a id="link-register" href="register.html" class="font-semibold text-primary dark:text-blue-300">Daftar
+        sekarang</a>
+    </p>
+
+    <button id="btn-toggle-dark" type="button" aria-label="Ganti tema"
+      class="fixed top-4 right-4 min-h-10 min-w-10 rounded-full bg-white/80 dark:bg-slate-900/80 border border-outline-variant dark:border-slate-700 backdrop-blur flex items-center justify-center text-on-surface dark:text-slate-200 active:scale-95">
+      <span class="material-symbols-outlined">contrast</span>
+    </button>
+  </main>
+  <script src="app.js"></script>
+</body>
+
+</html>

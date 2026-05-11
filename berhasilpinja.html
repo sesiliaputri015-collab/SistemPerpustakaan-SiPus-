@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <title>SIPUS — Peminjaman Berhasil</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#1a2842", background: "#f5f7fa", "on-background": "#0b1c30",
+            "surface-container": "#eef2f7", "surface-container-low": "#f8fafc",
+            "on-surface": "#0b1c30", "on-surface-variant": "#5a6478",
+            outline: "#9ca3af", "outline-variant": "#e5e7eb",
+          },
+          fontFamily: { manrope: ["Manrope", "sans-serif"], inter: ["Inter", "sans-serif"] },
+        }
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="min-h-screen bg-background dark:bg-slate-950 text-on-background dark:text-slate-300 font-inter pb-safe">
+  <main class="min-h-screen flex flex-col items-center px-6 py-12 max-w-md mx-auto">
+    <div class="w-24 h-24 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center mb-6">
+      <span class="material-symbols-outlined !text-6xl text-emerald-600 dark:text-emerald-400">check_circle</span>
+    </div>
+    <h1 class="font-manrope font-bold text-2xl text-center">Peminjaman Berhasil!</h1>
+    <p class="text-sm text-center text-on-surface-variant dark:text-slate-400 mt-2 max-w-sm">
+      Buku telah ditambahkan ke koleksi Anda. Silakan ambil di rak yang ditunjukkan dalam waktu 24 jam.
+    </p>
+
+    <section class="w-full mt-8 rounded-2xl bg-surface-container dark:bg-slate-900 p-4">
+      <div class="flex gap-4">
+        <img src="hujan.bmp" alt="Hujan" class="w-16 h-24 object-cover rounded-lg shadow" />
+        <div class="flex-1 min-w-0">
+          <h2 class="font-semibold">Hujan</h2>
+          <p class="text-xs text-on-surface-variant dark:text-slate-400">Tere Liye</p>
+          <p class="text-xs mt-1 text-primary dark:text-blue-300">Lokasi: Rak F-12</p>
+        </div>
+      </div>
+      <hr class="my-4 border-outline-variant/40 dark:border-slate-800" />
+      <dl class="grid grid-cols-2 gap-3 text-sm">
+        <div>
+          <dt class="text-xs text-on-surface-variant dark:text-slate-400">ID Pinjam</dt>
+          <dd class="font-mono font-medium">SIPUS-20260427-AP</dd>
+        </div>
+        <div>
+          <dt class="text-xs text-on-surface-variant dark:text-slate-400">Tanggal Kembali</dt>
+          <dd class="font-medium">11 Mei 2026</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section
+      class="w-full mt-5 rounded-2xl border border-amber-200 dark:border-amber-800/50 bg-amber-50 dark:bg-amber-900/20 p-4 text-sm text-amber-800 dark:text-amber-300 flex gap-3">
+      <span class="material-symbols-outlined">info</span>
+      <p>Kembalikan tepat waktu untuk menghindari denda Rp1.000/hari keterlambatan.</p>
+    </section>
+
+    <div class="w-full mt-auto pt-8 space-y-3">
+      <a id="btn-view-collection" href="koleksi.html"
+        class="w-full min-h-12 rounded-full bg-primary hover:bg-primary-container text-white font-semibold flex items-center justify-center gap-2 active:scale-95 shadow-md shadow-primary/30">
+        Lihat Koleksi Saya
+      </a>
+      <a id="btn-back-home" href="beranda.html"
+        class="w-full min-h-12 rounded-full border border-outline-variant dark:border-slate-700 text-on-surface dark:text-slate-200 font-medium flex items-center justify-center active:scale-95">
+        Kembali ke Beranda
+      </a>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

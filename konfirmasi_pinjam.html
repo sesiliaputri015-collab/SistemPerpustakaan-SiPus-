@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <title>SIPUS — Konfirmasi Peminjaman</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#1a2842", "primary-container": "#0f1a2e",
+            background: "#f5f7fa", "on-background": "#0b1c30",
+            surface: "#ffffff", "surface-container": "#eef2f7",
+            "surface-container-low": "#f8fafc",
+            "on-surface": "#0b1c30", "on-surface-variant": "#5a6478",
+            outline: "#9ca3af", "outline-variant": "#e5e7eb",
+          },
+          fontFamily: { manrope: ["Manrope", "sans-serif"], inter: ["Inter", "sans-serif"] },
+        }
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="min-h-screen bg-background dark:bg-slate-950 text-on-background dark:text-slate-300 font-inter pb-safe">
+  <header
+    class="sticky top-0 z-40 bg-background/95 dark:bg-slate-950/95 backdrop-blur px-4 py-3 flex items-center gap-3 border-b border-outline-variant/40 dark:border-slate-800">
+    <a id="btn-back" href="pinjambuku.html"
+      class="min-h-10 min-w-10 flex items-center justify-center rounded-full active:scale-95 text-on-surface dark:text-slate-200"
+      aria-label="Kembali">
+      <span class="material-symbols-outlined">arrow_back</span>
+    </a>
+    <h1 class="font-manrope font-bold text-base flex-1 truncate">Borrow Book</h1>
+    <button id="btn-toggle-dark" type="button" aria-label="Ganti tema"
+      class="min-h-10 min-w-10 rounded-full active:scale-95 text-on-surface dark:text-slate-200">
+      <span class="material-symbols-outlined">contrast</span>
+    </button>
+  </header>
+
+  <main class="px-5 py-5 space-y-5 max-w-md mx-auto">
+    <!-- Book card -->
+    <section
+      class="flex gap-4 p-4 rounded-2xl bg-white dark:bg-slate-900 shadow-sm border border-outline-variant/40 dark:border-slate-800">
+      <img src="hujan.bmp" alt="Hujan" class="w-16 h-24 object-cover rounded-lg shadow" />
+      <div class="flex-1 min-w-0">
+        <p class="text-[10px] uppercase tracking-wider text-primary dark:text-blue-300 font-bold">FIKSI · NOVEL</p>
+        <h2 class="font-manrope font-bold text-base leading-tight mt-0.5">Hujan</h2>
+        <p class="text-xs text-on-surface-variant dark:text-slate-400">Tere Liye</p>
+        <div class="flex items-center gap-1 mt-1">
+          <span class="material-symbols-outlined !text-sm text-amber-500">star</span>
+          <span class="text-xs font-semibold">4.7</span>
+          <span class="text-xs text-on-surface-variant dark:text-slate-500">(1.2k ulasan)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Detail Peminjaman -->
+    <section
+      class="rounded-2xl bg-white dark:bg-slate-900 shadow-sm border border-outline-variant/40 dark:border-slate-800 p-5 space-y-5">
+      <h3 class="font-manrope font-bold text-base">Detail Peminjaman</h3>
+
+      <div>
+        <label for="date-borrow"
+          class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant dark:text-slate-400 mb-1.5">Tanggal
+          Pinjam</label>
+        <div class="relative">
+          <span
+            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant dark:text-slate-500 !text-xl">calendar_today</span>
+          <input id="date-borrow" type="date" value="2026-04-27"
+            class="w-full min-h-12 pl-11 pr-4 rounded-xl border border-outline-variant dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-primary focus:ring-2 focus:ring-primary/20 text-sm" />
+        </div>
+      </div>
+
+      <div>
+        <span
+          class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant dark:text-slate-400 mb-2">Durasi
+          Pinjam</span>
+        <div class="grid grid-cols-3 gap-2" id="duration-group">
+          <button type="button" data-duration="3" data-active="true"
+            class="duration-btn min-h-12 rounded-xl border-2 border-emerald-500 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 font-semibold text-sm active:scale-95">
+            3 Hari
+          </button>
+          <button type="button" data-duration="7"
+            class="duration-btn min-h-12 rounded-xl border-2 border-outline-variant dark:border-slate-700 bg-white dark:bg-slate-800 text-on-surface dark:text-slate-200 font-semibold text-sm active:scale-95">
+            7 Hari
+          </button>
+          <button type="button" data-duration="14"
+            class="duration-btn min-h-12 rounded-xl border-2 border-outline-variant dark:border-slate-700 bg-white dark:bg-slate-800 text-on-surface dark:text-slate-200 font-semibold text-sm active:scale-95">
+            14 Hari
+          </button>
+        </div>
+      </div>
+
+      <div>
+        <label for="date-return"
+          class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant dark:text-slate-400 mb-1.5">Tanggal
+          Kembali</label>
+        <div class="relative">
+          <span
+            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant dark:text-slate-500 !text-xl">event_available</span>
+          <input id="date-return" type="date" value="2026-04-30" readonly
+            class="w-full min-h-12 pl-11 pr-4 rounded-xl border border-outline-variant dark:border-slate-700 bg-surface-container dark:bg-slate-800/60 text-sm cursor-not-allowed" />
+        </div>
+        <p class="text-[11px] text-on-surface-variant dark:text-slate-500 mt-1">Otomatis dihitung dari tanggal pinjam +
+          durasi.</p>
+      </div>
+
+      <label class="flex items-start gap-3 text-xs text-on-surface-variant dark:text-slate-400 pt-2">
+        <input id="check-terms" type="checkbox" required
+          class="mt-0.5 rounded text-primary focus:ring-primary shrink-0" />
+        <span class="leading-relaxed">Saya setuju dengan <a href="#"
+            class="text-primary dark:text-blue-300 font-medium underline">Syarat &amp; Ketentuan</a> peminjaman dan
+          memahami denda Rp 1.000/hari berlaku untuk keterlambatan.</span>
+      </label>
+    </section>
+  </main>
+
+  <div
+    class="fixed bottom-0 left-0 right-0 z-40 px-5 py-3 bg-white/95 dark:bg-slate-900/95 backdrop-blur border-t border-outline-variant/40 dark:border-slate-800 flex gap-3 max-w-md mx-auto">
+    <a id="btn-cancel" href="pinjambuku.html"
+      class="min-h-12 px-5 rounded-xl border border-outline-variant dark:border-slate-700 text-on-surface dark:text-slate-200 flex items-center active:scale-95">
+      Batal
+    </a>
+    <a id="btn-confirm-pinjam" href="berhasilpinja.html"
+      class="flex-1 min-h-12 rounded-xl bg-primary hover:bg-primary-container text-white font-semibold flex items-center justify-center gap-2 active:scale-95 shadow-md shadow-primary/30">
+      Konfirmasi Peminjaman
+    </a>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    // Duration selector + auto return date
+    (function () {
+      const buttons = document.querySelectorAll(".duration-btn");
+      const borrowInput = document.getElementById("date-borrow");
+      const returnInput = document.getElementById("date-return");
+
+      function setReturn(days) {
+        if (!borrowInput.value) return;
+        const d = new Date(borrowInput.value);
+        d.setDate(d.getDate() + Number(days));
+        returnInput.value = d.toISOString().slice(0, 10);
+      }
+
+      function activate(btn) {
+        buttons.forEach(function (b) {
+          b.classList.remove("border-emerald-500", "bg-emerald-50", "dark:bg-emerald-900/20", "text-emerald-700", "dark:text-emerald-300");
+          b.classList.add("border-outline-variant", "dark:border-slate-700", "bg-white", "dark:bg-slate-800", "text-on-surface", "dark:text-slate-200");
+          b.removeAttribute("data-active");
+        });
+        btn.classList.add("border-emerald-500", "bg-emerald-50", "dark:bg-emerald-900/20", "text-emerald-700", "dark:text-emerald-300");
+        btn.classList.remove("border-outline-variant", "dark:border-slate-700", "bg-white", "dark:bg-slate-800", "text-on-surface", "dark:text-slate-200");
+        btn.setAttribute("data-active", "true");
+        setReturn(btn.getAttribute("data-duration"));
+      }
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener("click", function () { activate(btn); });
+      });
+      borrowInput.addEventListener("change", function () {
+        const active = document.querySelector(".duration-btn[data-active]");
+        if (active) setReturn(active.getAttribute("data-duration"));
+      });
+    })();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <title>SIPUS — Koleksi Saya</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#1a2842", background: "#f5f7fa", "on-background": "#0b1c30",
+            "surface-container": "#eef2f7", "surface-container-low": "#f8fafc",
+            "on-surface": "#0b1c30", "on-surface-variant": "#5a6478",
+            outline: "#9ca3af", "outline-variant": "#e5e7eb",
+          },
+          fontFamily: { manrope: ["Manrope", "sans-serif"], inter: ["Inter", "sans-serif"] },
+        }
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="min-h-screen bg-background dark:bg-slate-950 text-on-background dark:text-slate-300 font-inter pb-safe">
+  <header
+    class="sticky top-0 z-40 bg-background/95 dark:bg-slate-950/95 backdrop-blur px-5 pt-5 pb-3 border-b border-outline-variant/40 dark:border-slate-800">
+    <div class="flex items-center justify-between">
+      <h1 class="font-manrope font-bold text-2xl">Koleksi Saya</h1>
+      <button id="btn-toggle-dark" type="button" aria-label="Ganti tema"
+        class="min-h-10 min-w-10 rounded-full active:scale-95 text-on-surface dark:text-slate-200">
+        <span class="material-symbols-outlined">contrast</span>
+      </button>
+    </div>
+    <p class="text-sm text-on-surface-variant dark:text-slate-400 mt-1">Pantau peminjaman dan riwayat Anda.</p>
+
+    <div class="mt-4 flex gap-2 bg-surface-container dark:bg-slate-900 p-1 rounded-full" role="tablist">
+      <button id="tab-active" data-tab="active"
+        class="tab-btn flex-1 min-h-10 rounded-full text-sm font-semibold bg-primary text-white active:scale-95">Aktif</button>
+      <button id="tab-history" data-tab="history"
+        class="tab-btn flex-1 min-h-10 rounded-full text-sm font-semibold text-on-surface dark:text-slate-300 active:scale-95">Riwayat</button>
+    </div>
+  </header>
+
+  <main class="px-5 py-5">
+    <!-- Active tab -->
+    <section id="panel-active" class="space-y-3">
+      <article class="rounded-2xl bg-surface-container-low dark:bg-slate-900 p-4 flex gap-3">
+        <img src="hujan.bmp" alt="Hujan" class="w-16 h-24 object-cover rounded-lg shadow" />
+        <div class="flex-1 min-w-0">
+          <h3 class="font-semibold truncate">Hujan</h3>
+          <p class="text-xs text-on-surface-variant dark:text-slate-400">Tere Liye</p>
+          <p class="text-xs mt-2 inline-flex items-center gap-1 text-amber-600 dark:text-amber-400">
+            <span class="material-symbols-outlined !text-sm">schedule</span> Jatuh tempo 30 Apr · 3 hari lagi
+          </p>
+          <div class="mt-3 flex gap-2">
+            <button id="btn-extend-1" type="button"
+              class="min-h-9 px-3 rounded-full text-xs font-semibold bg-primary text-white active:scale-95">Perpanjang</button>
+            <button type="button"
+              class="min-h-9 px-3 rounded-full text-xs font-semibold bg-surface-container dark:bg-slate-800 text-on-surface dark:text-slate-300 active:scale-95">Detail</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="rounded-2xl bg-surface-container-low dark:bg-slate-900 p-4 flex gap-3">
+        <img src="laut bercertita.jpg" alt="Laut Bercerita" class="w-16 h-24 object-cover rounded-lg shadow" />
+        <div class="flex-1 min-w-0">
+          <h3 class="font-semibold truncate">Laut Bercerita</h3>
+          <p class="text-xs text-on-surface-variant dark:text-slate-400">Leila S. Chudori</p>
+          <p class="text-xs mt-2 inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400">
+            <span class="material-symbols-outlined !text-sm">check_circle</span> 9 hari lagi
+          </p>
+          <div class="mt-3 flex gap-2">
+            <button id="btn-extend-2" type="button"
+              class="min-h-9 px-3 rounded-full text-xs font-semibold bg-primary text-white active:scale-95">Perpanjang</button>
+            <button type="button"
+              class="min-h-9 px-3 rounded-full text-xs font-semibold bg-surface-container dark:bg-slate-800 text-on-surface dark:text-slate-300 active:scale-95">Detail</button>
+          </div>
+        </div>
+      </article>
+
+      <article
+        class="rounded-2xl border border-rose-200 dark:border-rose-900/40 bg-rose-50 dark:bg-rose-900/15 p-4 flex gap-3">
+        <img src="filosofi teras.jpg" alt="Filosofi Teras" class="w-16 h-24 object-cover rounded-lg shadow" />
+        <div class="flex-1 min-w-0">
+          <h3 class="font-semibold truncate">Filosofi Teras</h3>
+          <p class="text-xs text-on-surface-variant dark:text-slate-400">Henry Manampiring</p>
+          <p class="text-xs mt-2 inline-flex items-center gap-1 text-rose-600 dark:text-rose-400 font-semibold">
+            <span class="material-symbols-outlined !text-sm">error</span> Terlambat 12 hari · Denda Rp12.000
+          </p>
+          <div class="mt-3 flex gap-2">
+            <a id="btn-bayar-denda" href="pembayaran_denda.html"
+              class="min-h-9 px-3 rounded-full text-xs font-semibold bg-rose-600 text-white active:scale-95 inline-flex items-center">Bayar
+              Denda</a>
+            <button type="button"
+              class="min-h-9 px-3 rounded-full text-xs font-semibold bg-white dark:bg-slate-900 border border-outline-variant dark:border-slate-700 text-on-surface dark:text-slate-300 active:scale-95">Detail</button>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- History tab (hidden by default) -->
+    <section id="panel-history" class="hidden space-y-3">
+      <article class="rounded-2xl bg-surface-container-low dark:bg-slate-900 p-4 flex gap-3 opacity-90">
+        <div
+          class="w-16 h-24 rounded-lg bg-gradient-to-br from-rose-400 to-rose-600 flex items-center justify-center text-white font-manrope font-bold">
+          B</div>
+        <div class="flex-1 min-w-0">
+          <h3 class="font-semibold truncate">Bumi</h3>
+          <p class="text-xs text-on-surface-variant dark:text-slate-400">Tere Liye</p>
+          <p class="text-xs mt-2 text-emerald-600 dark:text-emerald-400">Dikembalikan 12 Mar 2026</p>
+        </div>
+      </article>
+      <article class="rounded-2xl bg-surface-container-low dark:bg-slate-900 p-4 flex gap-3 opacity-90">
+        <div
+          class="w-16 h-24 rounded-lg bg-gradient-to-br from-violet-500 to-purple-700 flex items-center justify-center text-white font-manrope font-bold">
+          SP</div>
+        <div class="flex-1 min-w-0">
+          <h3 class="font-semibold truncate">Sapiens</h3>
+          <p class="text-xs text-on-surface-variant dark:text-slate-400">Yuval Noah Harari</p>
+          <p class="text-xs mt-2 text-emerald-600 dark:text-emerald-400">Dikembalikan 02 Feb 2026</p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <nav id="bottom-nav"
+    class="fixed bottom-0 left-0 right-0 z-50 flex justify-around items-center px-2 py-2 bg-white/95 dark:bg-slate-900/95 backdrop-blur-lg border-t border-outline-variant/40 dark:border-slate-800 shadow-[0_-4px_12px_rgba(30,58,138,0.05)]">
+    <a data-nav="beranda" href="beranda.html"
+      class="nav-link min-h-12 min-w-16 flex flex-col items-center justify-center px-3 py-1 rounded-xl text-slate-400 dark:text-slate-500 hover:text-primary dark:hover:text-blue-400 active:scale-95"><span
+        class="material-symbols-outlined">home</span><span
+        class="text-[10px] font-semibold uppercase tracking-wider mt-0.5">Beranda</span></a>
+    <a data-nav="buku" href="buku.html"
+      class="nav-link min-h-12 min-w-16 flex flex-col items-center justify-center px-3 py-1 rounded-xl text-slate-400 dark:text-slate-500 hover:text-primary dark:hover:text-blue-400 active:scale-95"><span
+        class="material-symbols-outlined">menu_book</span><span
+        class="text-[10px] font-semibold uppercase tracking-wider mt-0.5">Buku</span></a>
+    <a data-nav="pinjam" href="koleksi.html"
+      class="nav-link min-h-12 min-w-16 flex flex-col items-center justify-center px-3 py-1 rounded-xl text-slate-400 dark:text-slate-500 hover:text-primary dark:hover:text-blue-400 active:scale-95"><span
+        class="material-symbols-outlined">collections_bookmark</span><span
+        class="text-[10px] font-semibold uppercase tracking-wider mt-0.5">Pinjam</span></a>
+    <a data-nav="akun" href="account.html"
+      class="nav-link min-h-12 min-w-16 flex flex-col items-center justify-center px-3 py-1 rounded-xl text-slate-400 dark:text-slate-500 hover:text-primary dark:hover:text-blue-400 active:scale-95"><span
+        class="material-symbols-outlined">person</span><span
+        class="text-[10px] font-semibold uppercase tracking-wider mt-0.5">Akun</span></a>
+  </nav>
+
+  <script src="app.js"></script>
+  <script>
+    // Local tab logic for koleksi
+    document.querySelectorAll(".tab-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        const tab = btn.getAttribute("data-tab");
+        document.querySelectorAll(".tab-btn").forEach(function (b) {
+          b.classList.remove("bg-primary", "text-white");
+          b.classList.add("text-on-surface", "dark:text-slate-300");
+        });
+        btn.classList.add("bg-primary", "text-white");
+        btn.classList.remove("text-on-surface", "dark:text-slate-300");
+        document.getElementById("panel-active").classList.toggle("hidden", tab !== "active");
+        document.getElementById("panel-history").classList.toggle("hidden", tab !== "history");
+      });
+    });
+  </script>
+</body>
+
+</html>

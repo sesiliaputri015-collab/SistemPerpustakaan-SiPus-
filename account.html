@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <title>SIPUS — Akun Saya</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#1a2842", background: "#f5f7fa", "on-background": "#0b1c30",
+            "surface-container": "#eef2f7", "surface-container-low": "#f8fafc",
+            "on-surface": "#0b1c30", "on-surface-variant": "#5a6478",
+            outline: "#9ca3af", "outline-variant": "#e5e7eb",
+          },
+          fontFamily: { manrope: ["Manrope", "sans-serif"], inter: ["Inter", "sans-serif"] },
+        }
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="min-h-screen bg-background dark:bg-slate-950 text-on-background dark:text-slate-300 font-inter pb-safe">
+  <header class="px-5 pt-8 pb-6 bg-gradient-to-br from-primary-container to-primary text-white rounded-b-3xl">
+    <div class="flex items-center gap-4">
+      <div
+        class="w-16 h-16 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-2xl font-manrope font-bold">
+        A</div>
+      <div class="flex-1 min-w-0">
+        <h1 class="font-manrope font-bold text-xl truncate">Aulia Pertiwi</h1>
+        <p class="text-sm text-white/80 truncate">aulia@kampus.ac.id</p>
+        <p class="text-xs text-white/70 mt-0.5">NIM 2401234567 · Anggota Aktif</p>
+      </div>
+      <button id="btn-edit-profile" type="button" aria-label="Ubah profil"
+        class="min-h-10 min-w-10 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center active:scale-95">
+        <span class="material-symbols-outlined">edit</span>
+      </button>
+    </div>
+
+    <div class="mt-5 grid grid-cols-3 gap-3">
+      <div class="rounded-xl bg-white/15 backdrop-blur p-3 text-center">
+        <p class="font-manrope font-bold text-xl">24</p>
+        <p class="text-[10px] uppercase tracking-wider opacity-80">Total Pinjam</p>
+      </div>
+      <div class="rounded-xl bg-white/15 backdrop-blur p-3 text-center">
+        <p class="font-manrope font-bold text-xl">3</p>
+        <p class="text-[10px] uppercase tracking-wider opacity-80">Aktif</p>
+      </div>
+      <div class="rounded-xl bg-white/15 backdrop-blur p-3 text-center">
+        <p class="font-manrope font-bold text-xl">12K</p>
+        <p class="text-[10px] uppercase tracking-wider opacity-80">Denda</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="px-5 py-5 space-y-5">
+    <!-- Settings -->
+    <section>
+      <h2 class="font-manrope font-bold text-base mb-3 px-1">Pengaturan</h2>
+      <ul
+        class="rounded-2xl bg-surface-container-low dark:bg-slate-900 divide-y divide-outline-variant/30 dark:divide-slate-800">
+        <li>
+          <button id="btn-toggle-dark" type="button"
+            class="w-full min-h-14 px-4 flex items-center gap-3 active:scale-[0.99] text-left">
+            <span
+              class="w-9 h-9 rounded-xl bg-blue-100 dark:bg-blue-900/30 text-primary dark:text-blue-300 flex items-center justify-center"><span
+                class="material-symbols-outlined">dark_mode</span></span>
+            <span class="flex-1">
+              <span class="block font-medium text-sm">Mode Gelap</span>
+              <span class="block text-xs text-on-surface-variant dark:text-slate-400">Sesuaikan tampilan</span>
+            </span>
+            <span class="material-symbols-outlined text-on-surface-variant dark:text-slate-500">contrast</span>
+          </button>
+        </li>
+        <li>
+          <button id="btn-notifications-settings" type="button"
+            class="w-full min-h-14 px-4 flex items-center gap-3 active:scale-[0.99] text-left">
+            <span
+              class="w-9 h-9 rounded-xl bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 flex items-center justify-center"><span
+                class="material-symbols-outlined">notifications</span></span>
+            <span class="flex-1">
+              <span class="block font-medium text-sm">Notifikasi</span>
+              <span class="block text-xs text-on-surface-variant dark:text-slate-400">Pengingat jatuh tempo</span>
+            </span>
+            <span class="material-symbols-outlined text-on-surface-variant dark:text-slate-500">chevron_right</span>
+          </button>
+        </li>
+        <li>
+          <button id="btn-language" type="button"
+            class="w-full min-h-14 px-4 flex items-center gap-3 active:scale-[0.99] text-left">
+            <span
+              class="w-9 h-9 rounded-xl bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 flex items-center justify-center"><span
+                class="material-symbols-outlined">language</span></span>
+            <span class="flex-1">
+              <span class="block font-medium text-sm">Bahasa</span>
+              <span class="block text-xs text-on-surface-variant dark:text-slate-400">Indonesia</span>
+            </span>
+            <span class="material-symbols-outlined text-on-surface-variant dark:text-slate-500">chevron_right</span>
+          </button>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Activity -->
+    <section>
+      <h2 class="font-manrope font-bold text-base mb-3 px-1">Aktivitas</h2>
+      <ul
+        class="rounded-2xl bg-surface-container-low dark:bg-slate-900 divide-y divide-outline-variant/30 dark:divide-slate-800">
+        <li>
+          <a href="koleksi.html" class="w-full min-h-14 px-4 flex items-center gap-3 active:scale-[0.99]">
+            <span
+              class="w-9 h-9 rounded-xl bg-blue-100 dark:bg-blue-900/30 text-primary dark:text-blue-300 flex items-center justify-center"><span
+                class="material-symbols-outlined">collections_bookmark</span></span>
+            <span class="flex-1">
+              <span class="block font-medium text-sm">Riwayat Peminjaman</span>
+              <span class="block text-xs text-on-surface-variant dark:text-slate-400">24 buku selama menjadi
+                anggota</span>
+            </span>
+            <span class="material-symbols-outlined text-on-surface-variant dark:text-slate-500">chevron_right</span>
+          </a>
+        </li>
+        <li>
+          <a href="pembayaran_denda.html" class="w-full min-h-14 px-4 flex items-center gap-3 active:scale-[0.99]">
+            <span
+              class="w-9 h-9 rounded-xl bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400 flex items-center justify-center"><span
+                class="material-symbols-outlined">payments</span></span>
+            <span class="flex-1">
+              <span class="block font-medium text-sm">Riwayat Denda</span>
+              <span class="block text-xs text-on-surface-variant dark:text-slate-400">1 tagihan aktif Rp12.000</span>
+            </span>
+            <span class="material-symbols-outlined text-on-surface-variant dark:text-slate-500">chevron_right</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Support -->
+    <section>
+      <h2 class="font-manrope font-bold text-base mb-3 px-1">Bantuan</h2>
+      <ul
+        class="rounded-2xl bg-surface-container-low dark:bg-slate-900 divide-y divide-outline-variant/30 dark:divide-slate-800">
+        <li>
+          <button id="btn-help" type="button"
+            class="w-full min-h-14 px-4 flex items-center gap-3 active:scale-[0.99] text-left">
+            <span
+              class="w-9 h-9 rounded-xl bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 flex items-center justify-center"><span
+                class="material-symbols-outlined">help</span></span>
+            <span class="flex-1 font-medium text-sm">Pusat Bantuan</span>
+            <span class="material-symbols-outlined text-on-surface-variant dark:text-slate-500">chevron_right</span>
+          </button>
+        </li>
+        <li>
+          <button id="btn-about" type="button"
+            class="w-full min-h-14 px-4 flex items-center gap-3 active:scale-[0.99] text-left">
+            <span
+              class="w-9 h-9 rounded-xl bg-cyan-100 dark:bg-cyan-900/30 text-cyan-600 dark:text-cyan-400 flex items-center justify-center"><span
+                class="material-symbols-outlined">info</span></span>
+            <span class="flex-1 font-medium text-sm">Tentang SIPUS</span>
+            <span class="material-symbols-outlined text-on-surface-variant dark:text-slate-500">chevron_right</span>
+          </button>
+        </li>
+      </ul>
+    </section>
+
+    <button id="btn-logout" type="button"
+      class="w-full min-h-12 rounded-full bg-rose-50 dark:bg-rose-900/20 text-rose-600 dark:text-rose-400 font-semibold flex items-center justify-center gap-2 active:scale-95 border border-rose-200 dark:border-rose-900/40">
+      <span class="material-symbols-outlined">logout</span>
+      Keluar
+    </button>
+
+    <p class="text-center text-xs text-on-surface-variant dark:text-slate-500 mt-4">
+      SIPUS v1.0 · © 2026 Perpustakaan Kampus
+    </p>
+  </main>
+
+  <nav id="bottom-nav"
+    class="fixed bottom-0 left-0 right-0 z-50 flex justify-around items-center px-2 py-2 bg-white/95 dark:bg-slate-900/95 backdrop-blur-lg border-t border-outline-variant/40 dark:border-slate-800 shadow-[0_-4px_12px_rgba(30,58,138,0.05)]">
+    <a data-nav="beranda" href="beranda.html"
+      class="nav-link min-h-12 min-w-16 flex flex-col items-center justify-center px-3 py-1 rounded-xl text-slate-400 dark:text-slate-500 hover:text-primary dark:hover:text-blue-400 active:scale-95"><span
+        class="material-symbols-outlined">home</span><span
+        class="text-[10px] font-semibold uppercase tracking-wider mt-0.5">Beranda</span></a>
+    <a data-nav="buku" href="buku.html"
+      class="nav-link min-h-12 min-w-16 flex flex-col items-center justify-center px-3 py-1 rounded-xl text-slate-400 dark:text-slate-500 hover:text-primary dark:hover:text-blue-400 active:scale-95"><span
+        class="material-symbols-outlined">menu_book</span><span
+        class="text-[10px] font-semibold uppercase tracking-wider mt-0.5">Buku</span></a>
+    <a data-nav="pinjam" href="koleksi.html"
+      class="nav-link min-h-12 min-w-16 flex flex-col items-center justify-center px-3 py-1 rounded-xl text-slate-400 dark:text-slate-500 hover:text-primary dark:hover:text-blue-400 active:scale-95"><span
+        class="material-symbols-outlined">collections_bookmark</span><span
+        class="text-[10px] font-semibold uppercase tracking-wider mt-0.5">Pinjam</span></a>
+    <a data-nav="akun" href="account.html"
+      class="nav-link min-h-12 min-w-16 flex flex-col items-center justify-center px-3 py-1 rounded-xl text-slate-400 dark:text-slate-500 hover:text-primary dark:hover:text-blue-400 active:scale-95"><span
+        class="material-symbols-outlined">person</span><span
+        class="text-[10px] font-semibold uppercase tracking-wider mt-0.5">Akun</span></a>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

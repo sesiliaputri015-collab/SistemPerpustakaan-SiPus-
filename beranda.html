@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <title>SIPUS — Beranda</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#1a2842", "primary-container": "#0f1a2e",
+            background: "#f5f7fa", "on-background": "#0b1c30",
+            surface: "#ffffff", "surface-container": "#eef2f7",
+            "surface-container-low": "#f8fafc", "surface-container-high": "#e2e8f0",
+            "on-surface": "#0b1c30", "on-surface-variant": "#5a6478",
+            outline: "#9ca3af", "outline-variant": "#e5e7eb",
+          },
+          fontFamily: { manrope: ["Manrope", "sans-serif"], inter: ["Inter", "sans-serif"] },
+        }
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="min-h-screen bg-background dark:bg-slate-950 text-on-background dark:text-slate-300 font-inter pb-safe">
+  <!-- Header -->
+  <header class="px-5 pt-6 pb-4 bg-gradient-to-br from-primary-container to-primary text-white rounded-b-3xl">
+    <div class="flex items-center gap-3">
+      <div class="w-11 h-11 rounded-full bg-white/20 backdrop-blur flex items-center justify-center font-bold">A</div>
+      <div class="flex-1">
+        <p class="text-xs text-white/80">Selamat datang,</p>
+        <h1 class="font-manrope font-bold text-lg leading-tight">Aulia Pertiwi</h1>
+      </div>
+      <button id="btn-toggle-dark" type="button" aria-label="Ganti tema"
+        class="min-h-10 min-w-10 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center active:scale-95">
+        <span class="material-symbols-outlined">contrast</span>
+      </button>
+      <button id="btn-notifications" type="button" aria-label="Notifikasi"
+        class="min-h-10 min-w-10 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center active:scale-95 relative">
+        <span class="material-symbols-outlined">notifications</span>
+        <span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-red-400"></span>
+      </button>
+    </div>
+
+    <a href="buku.html" id="btn-search-redirect"
+      class="mt-5 flex items-center gap-3 bg-white/95 dark:bg-slate-900 px-4 min-h-12 rounded-full text-on-surface-variant dark:text-slate-400 active:scale-[0.99]">
+      <span class="material-symbols-outlined">search</span>
+      <span class="text-sm">Cari buku, penulis, kategori…</span>
+    </a>
+  </header>
+
+  <!-- Quick stats -->
+  <section class="px-5 mt-5 grid grid-cols-3 gap-3">
+    <div class="rounded-2xl bg-surface-container dark:bg-slate-900 p-3 text-center">
+      <p class="text-2xl font-manrope font-bold text-primary dark:text-blue-300">3</p>
+      <p class="text-[11px] mt-0.5 uppercase tracking-wide text-on-surface-variant dark:text-slate-400">Sedang Dipinjam
+      </p>
+    </div>
+    <div class="rounded-2xl bg-surface-container dark:bg-slate-900 p-3 text-center">
+      <p class="text-2xl font-manrope font-bold text-amber-500">1</p>
+      <p class="text-[11px] mt-0.5 uppercase tracking-wide text-on-surface-variant dark:text-slate-400">Akan Jatuh Tempo
+      </p>
+    </div>
+    <div class="rounded-2xl bg-surface-container dark:bg-slate-900 p-3 text-center">
+      <p class="text-2xl font-manrope font-bold text-rose-500">12K</p>
+      <p class="text-[11px] mt-0.5 uppercase tracking-wide text-on-surface-variant dark:text-slate-400">Denda</p>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="mt-7 px-5">
+    <div class="flex items-center justify-between mb-3">
+      <h2 class="font-manrope font-bold text-lg">Kategori</h2>
+      <a href="buku.html" class="text-sm text-primary dark:text-blue-300 font-medium">Lihat semua</a>
+    </div>
+    <div class="grid grid-cols-4 gap-3">
+      <a href="buku.html" class="flex flex-col items-center gap-2 active:scale-95">
+        <span
+          class="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-blue-900/30 text-primary dark:text-blue-300 flex items-center justify-center"><span
+            class="material-symbols-outlined">science</span></span>
+        <span class="text-xs">Sains</span>
+      </a>
+      <a href="buku.html" class="flex flex-col items-center gap-2 active:scale-95">
+        <span
+          class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 flex items-center justify-center"><span
+            class="material-symbols-outlined">history_edu</span></span>
+        <span class="text-xs">Sastra</span>
+      </a>
+      <a href="buku.html" class="flex flex-col items-center gap-2 active:scale-95">
+        <span
+          class="w-12 h-12 rounded-2xl bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 flex items-center justify-center"><span
+            class="material-symbols-outlined">brush</span></span>
+        <span class="text-xs">Seni</span>
+      </a>
+      <a href="buku.html" class="flex flex-col items-center gap-2 active:scale-95">
+        <span
+          class="w-12 h-12 rounded-2xl bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400 flex items-center justify-center"><span
+            class="material-symbols-outlined">public</span></span>
+        <span class="text-xs">Sejarah</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Sedang dipinjam -->
+  <section class="mt-7 px-5">
+    <div class="flex items-center justify-between mb-3">
+      <h2 class="font-manrope font-bold text-lg">Sedang Dipinjam</h2>
+      <a href="koleksi.html" class="text-sm text-primary dark:text-blue-300 font-medium">Lihat semua</a>
+    </div>
+    <div class="space-y-3">
+      <a href="koleksi.html"
+        class="flex items-center gap-3 p-3 rounded-2xl bg-surface-container-low dark:bg-slate-900 active:scale-[0.99]">
+        <img src="hujan.bmp" alt="Hujan" class="w-14 h-20 object-cover rounded-lg shadow" />
+        <div class="flex-1 min-w-0">
+          <h3 class="font-semibold truncate">Hujan</h3>
+          <p class="text-xs text-on-surface-variant dark:text-slate-400">Tere Liye</p>
+          <p class="text-xs mt-1 inline-flex items-center gap-1 text-amber-600 dark:text-amber-400"><span
+              class="material-symbols-outlined !text-sm">schedule</span> 3 hari lagi</p>
+        </div>
+        <span class="material-symbols-outlined text-on-surface-variant dark:text-slate-500">chevron_right</span>
+      </a>
+      <a href="koleksi.html"
+        class="flex items-center gap-3 p-3 rounded-2xl bg-surface-container-low dark:bg-slate-900 active:scale-[0.99]">
+        <img src="laut bercertita.jpg" alt="Laut Bercerita" class="w-14 h-20 object-cover rounded-lg shadow" />
+        <div class="flex-1 min-w-0">
+          <h3 class="font-semibold truncate">Laut Bercerita</h3>
+          <p class="text-xs text-on-surface-variant dark:text-slate-400">Leila S. Chudori</p>
+          <p class="text-xs mt-1 inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400"><span
+              class="material-symbols-outlined !text-sm">check_circle</span> 9 hari lagi</p>
+        </div>
+        <span class="material-symbols-outlined text-on-surface-variant dark:text-slate-500">chevron_right</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Recommended -->
+  <section class="mt-7">
+    <div class="flex items-center justify-between mb-3 px-5">
+      <h2 class="font-manrope font-bold text-lg">Direkomendasikan</h2>
+      <a href="buku.html" class="text-sm text-primary dark:text-blue-300 font-medium">Lihat semua</a>
+    </div>
+    <div class="flex gap-4 overflow-x-auto no-scrollbar px-5 pb-2">
+      <a href="pinjambuku.html" class="shrink-0 w-32 active:scale-95">
+        <img src="hujan.bmp" alt="Hujan" class="w-32 h-44 object-cover rounded-xl shadow-md" />
+        <p class="font-semibold text-sm mt-2 truncate">Hujan</p>
+        <p class="text-xs text-on-surface-variant dark:text-slate-400 truncate">Tere Liye</p>
+      </a>
+      <a href="pinjambuku.html" class="shrink-0 w-32 active:scale-95">
+        <img src="bumi.jpg" alt="Bumi" class="w-32 h-44 object-cover rounded-xl shadow-md" />
+        <p class="font-semibold text-sm mt-2 truncate">Bumi</p>
+        <p class="text-xs text-on-surface-variant dark:text-slate-400 truncate">Tere Liye</p>
+      </a>
+      <a href="pinjambuku.html" class="shrink-0 w-32 active:scale-95">
+        <img src="pulang.jpg" alt="Pulang" class="w-32 h-44 object-cover rounded-xl shadow-md" />
+        <p class="font-semibold text-sm mt-2 truncate">Pulang</p>
+        <p class="text-xs text-on-surface-variant dark:text-slate-400 truncate">Leila S. Chudori</p>
+      </a>
+      <a href="pinjambuku.html" class="shrink-0 w-32 active:scale-95">
+        <img src="filosofi teras.jpg" alt="Filosofi Teras" class="w-32 h-44 object-cover rounded-xl shadow-md" />
+        <p class="font-semibold text-sm mt-2 truncate">Filosofi Teras</p>
+        <p class="text-xs text-on-surface-variant dark:text-slate-400 truncate">Henry Manampiring</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Bottom Nav -->
+  <nav id="bottom-nav"
+    class="fixed bottom-0 left-0 right-0 z-50 flex justify-around items-center px-2 py-2 bg-white/95 dark:bg-slate-900/95 backdrop-blur-lg border-t border-outline-variant/40 dark:border-slate-800 shadow-[0_-4px_12px_rgba(30,58,138,0.05)]">
+    <a data-nav="beranda" href="beranda.html"
+      class="nav-link min-h-12 min-w-16 flex flex-col items-center justify-center px-3 py-1 rounded-xl text-slate-400 dark:text-slate-500 hover:text-primary dark:hover:text-blue-400 active:scale-95">
+      <span class="material-symbols-outlined">home</span>
+      <span class="text-[10px] font-semibold uppercase tracking-wider mt-0.5">Beranda</span>
+    </a>
+    <a data-nav="buku" href="buku.html"
+      class="nav-link min-h-12 min-w-16 flex flex-col items-center justify-center px-3 py-1 rounded-xl text-slate-400 dark:text-slate-500 hover:text-primary dark:hover:text-blue-400 active:scale-95">
+      <span class="material-symbols-outlined">menu_book</span>
+      <span class="text-[10px] font-semibold uppercase tracking-wider mt-0.5">Buku</span>
+    </a>
+    <a data-nav="pinjam" href="koleksi.html"
+      class="nav-link min-h-12 min-w-16 flex flex-col items-center justify-center px-3 py-1 rounded-xl text-slate-400 dark:text-slate-500 hover:text-primary dark:hover:text-blue-400 active:scale-95">
+      <span class="material-symbols-outlined">collections_bookmark</span>
+      <span class="text-[10px] font-semibold uppercase tracking-wider mt-0.5">Pinjam</span>
+    </a>
+    <a data-nav="akun" href="account.html"
+      class="nav-link min-h-12 min-w-16 flex flex-col items-center justify-center px-3 py-1 rounded-xl text-slate-400 dark:text-slate-500 hover:text-primary dark:hover:text-blue-400 active:scale-95">
+      <span class="material-symbols-outlined">person</span>
+      <span class="text-[10px] font-semibold uppercase tracking-wider mt-0.5">Akun</span>
+    </a>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
